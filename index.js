@@ -58,7 +58,7 @@ function cardClicked(e) {
     const num = mat[i][j];
 
     e.target.textContent = num;
-    e.target.style.color = "black";
+    e.target.style.color = "white";
     e.target.style.pointerEvents = "none";
 
     if (num1 === undefined) num1 = e.target;
