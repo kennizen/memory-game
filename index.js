@@ -3,8 +3,8 @@ const playAgainButton = document.getElementById("button-82-pushable");
 
 playAgainButton.addEventListener("click", play);
 
-const col = 2;
-const row = 2;
+// const col = 6;
+// const row = 6;
 
 let winCondition = 0;
 let num1;
@@ -13,8 +13,29 @@ let inPlay;
 let mat;
 
 function play() {
-    board.innerHTML = ""
-    mat = generateMatrix(row, col);
+    const bsize = prompt("Enter the board size.");
+
+    if (bsize % 2 !== 0) {
+        alert("Size must be even");
+        return;
+    }
+
+    if (bsize > 8) {
+        alert("Size must be <= 8");
+        return;
+    }
+
+    let size;
+
+    try {
+        size = parseInt(bsize);
+    } catch (error) {
+        alert("Must be a number");
+        return;
+    }
+
+    board.innerHTML = "";
+    mat = generateMatrix(size, size);
     generateBoard(mat);
     playAgainButton.style.display = "none";
     board.style.display = "grid";
@@ -118,7 +139,7 @@ function checkWin(count) {
     if (count >= row * col) {
         board.style.display = "none";
         playAgainButton.style.display = "block";
-        winCondition = 0
+        winCondition = 0;
     }
 }
 
