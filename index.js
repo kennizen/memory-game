@@ -3,14 +3,13 @@ const playAgainButton = document.getElementById("button-82-pushable");
 
 playAgainButton.addEventListener("click", play);
 
-// const col = 6;
-// const row = 6;
-
 let winCondition = 0;
 let num1;
 let num2;
 let inPlay;
 let mat;
+let row;
+let col;
 
 function play() {
     const bsize = prompt("Enter the board size.");
@@ -34,6 +33,8 @@ function play() {
         return;
     }
 
+    row = size;
+    col = size;
     board.innerHTML = "";
     mat = generateMatrix(size, size);
     generateBoard(mat);
